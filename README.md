@@ -6,3 +6,4 @@ other project i completed in my jurney as jonior developer
 - Filght reservation integrated with amadeus
 - Global Hotel reservations
 - Admin dashboard
+- Api for mobile applications and front end applications
