@@ -13,13 +13,14 @@ class CreateStoresTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->string('ar_name');
             $table->string('en_name');
             $table->string('image')->nullable();
-            $table->foreignId('user_id');
-            $table->foreignId('category_id');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->timestamps();
         });
     }

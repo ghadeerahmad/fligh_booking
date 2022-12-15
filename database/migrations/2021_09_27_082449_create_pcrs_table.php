@@ -15,7 +15,7 @@ class CreatePcrsTable extends Migration
     {
         Schema::create('pcrs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('travel_date');
             $table->string('city');
             $table->timestamps();

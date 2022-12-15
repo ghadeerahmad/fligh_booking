@@ -13,10 +13,11 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('chat_id');
-            $table->foreignId('user_id');
+            $table->foreignId('chat_id')->constrained('chats')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('message');
             $table->timestamps();
         });

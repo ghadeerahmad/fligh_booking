@@ -13,13 +13,14 @@ class CreateCarsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('airport');
             $table->string('destination');
             $table->string('date');
             $table->string('time');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -13,11 +13,12 @@ class CreateServicsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('servics', function (Blueprint $table) {
             $table->id();
             $table->string('ar_name');
             $table->string('en_name');
-            $table->foreignId('servicCategory_id');
+            $table->foreignId('servicCategory_id')->constrained('service_categories')->cascadeOnDelete();
             $table->string('image')->nullable();
             $table->text('des');
             $table->timestamps();

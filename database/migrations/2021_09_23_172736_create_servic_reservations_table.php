@@ -13,10 +13,11 @@ class CreateServicReservationsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('servic_reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('servic_id');
-            $table->foreignId('user_id');
+            $table->foreignId('servic_id')->constrained('servics')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('birthday');
             $table->string('bank');
             $table->string('education');

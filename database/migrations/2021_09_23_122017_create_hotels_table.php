@@ -15,12 +15,12 @@ class CreateHotelsTable extends Migration
     {
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
-            $table->string('hotel_name' , 128);
-            $table->integer('adults_no' , false , true);
-            $table->integer('children_no' , false , true);
+            $table->string('hotel_name', 128);
+            $table->integer('adults_no');
+            $table->integer('children_no');
             $table->dateTime('check_in')->nullable();
-            $table->integer('period' , false , true);
-            $table->integer('contact_no' , false , true);
+            $table->integer('period');
+            $table->integer('contact_no');
             $table->string('contact_email');
             $table->foreignId('user_id');
             $table->timestamps();

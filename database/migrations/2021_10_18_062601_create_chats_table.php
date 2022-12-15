@@ -13,10 +13,11 @@ class CreateChatsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sender_id');
-            $table->bigInteger('rec_id');
+            $table->foreignId('sender_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('rec_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
