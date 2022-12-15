@@ -1,0 +1,16 @@
+.form-box{
+    margin: auto;
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.circle-img,
+.navbar-vertical .navbar-brand>img, .navbar-vertical .navbar-brand-img{
+    width: 50px;
+    height: 50px;
+    max-height: 50px;
+    border-radius: 100px;
+    margin: 0 10px;
+}
